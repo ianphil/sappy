@@ -1,18 +1,15 @@
 """Used to scrape data"""
 import wikipedia
+import json
 import pydocumentdb
 import pydocumentdb.document_client as document_client
 
-config = {
-    'ENDPOINT': 'https://<account_name>.documents.azure.com',
-    'MASTERKEY': '<account_key>',
-    'DOCUMENTDB_DATABASE': '<db_name',
-    'DOCUMENTDB_COLLECTION': 'col_name'
-}
+with open("secrets.json") as secrets_file:
+    secrets = json.load(secrets_file)
 
-client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
-db = client.CreateDatabase({'id': config['DOCUMENTDB_DATABASE']})
-collection = client.CreateCollection(db['_self'], {'id': config['DOCUMENTDB_COLLECTION']})
+client = document_client.DocumentClient(secrets['ENDPOINT'], {'masterKey': secrets['MASTERKEY']})
+db = client.CreateDatabase({'id': secrets['DOCUMENTDB_DATABASE']})
+collection = client.CreateCollection(db['_self'], {'id': secrets['DOCUMENTDB_COLLECTION']})
 
 def get_big_hair_list():
     """Gets the list of bands and returns"""
