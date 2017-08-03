@@ -1,8 +1,7 @@
 """Used to scrape data"""
 import wikipedia
 import json
-import pydocumentdb
-import pydocumentdb.document_client as document_client
+from pydocumentdb import document_client
 
 with open("secrets.json") as secrets_file:
     secrets = json.load(secrets_file)
