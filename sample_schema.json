@@ -1,26 +1,29 @@
 [
     {
-    "Id": 1,
-    "Artist_Name": "Aerosmith",
-    "Album_List": [1, 2]
+        "Band_Id": 1,
+        "Band_Name": "Aerosmith",
+        "Album_List": [1, 2]
     },
+
     {
-        "Id": 1,
+        "Album_Id": 1,
         "Album_Name": "Album 1",
-        "Artist_Id": 1,
+        "Band_Id": 1,
         "Track_List": [5,6,7,8,9]
     },
+
     {
         "Type": "Track",
         "Track_Id": 5,
         "Track_Name": "Track five",
         "Album_Id": 1,
-        "Artist_Id": 1,
+        "Band_Id": 1,
         "Lyrics": [67],
         "Total_Score": 0.235356720741093
     },
+
     {
-        "Id": 67,
+        "Lyric_Id": 67,
         "Track_Id": 5,
         "Lyric": "line of lyrics",
         "Score": 0.135356720741093,
@@ -28,6 +31,16 @@
             "something awesome",
             "more awesome"
         ]
+    },
+    
+    {
+        "Artist_Id": 23,
+        "Artist_Name": "Steven Tyler",
+        "Band_List": [
+            {"Band_Id": 1, "Start": "1969", "End": "", "Instrument": "Vocals"}
+        ],
+        "80s_Hair": "Big",
+        "Current_Hair": "Big"
     }
 ]
 
