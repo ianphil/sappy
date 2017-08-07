@@ -11,10 +11,11 @@ coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] 
 
 for doc in client.ReadDocuments(coll['_self']):
     # if doc['Spotify_Url'] == []: #(287 - 202) record count
-    if doc['Spotify_Genres'] == []: #(202 - 172)
-        print "Deleting Band: " + doc["Band_Name"]
-        client.DeleteDocument(doc['_self'])
+    # if doc['Spotify_Genres'] == []: #(202 - 172)
+    #     print "Deleting Band: " + doc["Band_Name"]
+    #     client.DeleteDocument(doc['_self'])
     # print "Updating Band: " + doc["Band_Name"]
     # doc["Band_Name"] = doc["Band_Name"].split("(")[0]
     # doc["Band_Name"] = doc["Band_Name"].rstrip()
-    # client.UpsertDocument(coll['_self'], doc)
+    doc["Type"] = "Band"
+    client.UpsertDocument(coll['_self'], doc)
