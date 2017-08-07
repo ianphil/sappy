@@ -44,4 +44,3 @@ for band in results:
                 count += 1
             except:
                 print " --- ERROR --- Band: " + band['Band_Name']
-    
