@@ -23,32 +23,13 @@ options['enableCrossPartitionQuery'] = True
 options['maxItemCount'] = 2
 
 results = client.QueryDocuments(coll['_self'], query, options)
+# results = list(result_iterable)
 
 count = 1
 for album in results:
     try:
-        sp_album = spotify.album(album['Spotify_Id'])
-        for track in sp_album['tracks']['items']:
-            logging.info('Creating track: ' + track['name'])
-            print 'Creating track: ' + track['name']
-            client.CreateDocument(coll["_self"], 
-                {
-                    'Track_Id': count,
-                    'Type': 'Track',
-                    'Track_Name': track['name'],
-                    'Album_Id': album['Album_Id'],
-                    'Band_Id': album['Band_Id'],
-                    'Lyrics': [],
-                    'Total_Score': 0,
-                    'Disc_Number': track['disc_number'],
-                    'Duration_Ms': track['duration_ms'],
-                    'Explicit': track['explicit'],
-                    'Spotify_External_Url': track['external_urls']['spotify'],
-                    'Spotify_Id': track['id'],
-                    'Track_Number': track['track_number']
-                })
-            album["Track_List"].append(count)
-            count += 1
-        client.UpsertDocument(coll['_self'], album)
+        if int(album["Release_Date"].split('-')[0]) < 1980 or int(album['Release_Date'].split('-')[0]) > 1989:
+            print album['Album_Name'] + " - " + album["Release_Date"]
+            client.DeleteDocument(album['_self'])
     except:
         logging.error(' --- ERROR --- There was a problem')

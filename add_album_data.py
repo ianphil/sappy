@@ -1,7 +1,10 @@
 import json
 import spotipy
+import logging
 from spotipy.oauth2 import SpotifyClientCredentials
 from pydocumentdb import document_client
+
+logging.basicConfig(filename='album.update.log', level=logging.DEBUG)
 
 with open("secrets.json") as secrets_file:
     secrets = json.load(secrets_file)
@@ -24,10 +27,33 @@ results = list(result_iterable)
 
 count = 1
 for album in results:
-    sp_album = spotify.album(album['Spotify_Id'])
-    album['Label'] = sp_album['label']
-    album['Popularity'] = sp_album['popularity']
-    album['Release_Date'] = sp_album['release_date']
-    client.UpsertDocument(coll['_self'], album)
-    for 
-
+    try:
+        sp_album = spotify.album(album['Spotify_Id'])
+        album['Label'] = sp_album['label']
+        album['Popularity'] = sp_album['popularity']
+        album['Release_Date'] = sp_album['release_date']
+        logging.info('Updating album: ' + album['Album_Name'])
+        print 'Updating album: ' + album['Album_Name']
+        client.UpsertDocument(coll['_self'], album)
+        # for track in sp_album['tracks']['items']:
+        #     logging.info('Creating track: ' + track['name'])
+        #     print 'Creating track: ' + track['name']
+            # client.CreateDocument(coll["_self"], 
+            #     {
+            #         'Track_Id': count,
+            #         'Type': 'Track',
+            #         'Track_Name': track['name'],
+            #         'Album_Id': album['Album_Id'],
+            #         'Band_Id': album['Band_Id'],
+            #         'Lyrics': [],
+            #         'Total_Score': 0,
+            #         'Disk_Number': track['disk_number'],
+            #         'Duration_Ms': track['duration_ms'],
+            #         'Explicit': track['explicit'],
+            #         'Spotify_External_Url': track['external_urls']['spotify'],
+            #         'Spotify_Id': track['id'],
+            #         'Track_Number': track['track_number']
+            #     })
+            # count += 1
+    except:
+        logging.warning(' --- ERROR --- There was a problem')

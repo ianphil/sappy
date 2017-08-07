@@ -13,16 +13,15 @@ coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] 
 client_credentials_manager = SpotifyClientCredentials(secrets["SPOTIFY_CLIENT_ID"], secrets["SPOTIFY_CLIENT_SECRET"])
 spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
-query = { 'query': 'SELECT * FROM c WHERE c.Type = "Album"' }    
+query = { 'query': 'SELECT * FROM c WHERE c.Type = "Track"' }    
 
 options = {} 
 options['enableCrossPartitionQuery'] = True
 options['maxItemCount'] = 2
 
-result_iterable = client.QueryDocuments(coll['_self'], query, options)
-results = list(result_iterable)
+results = client.QueryDocuments(coll['_self'], query, options)
 
-for album in results:
-    print "Deleteing: " + album['Album_Name']
-    client.DeleteDocument(album['_self'])
+for track in results:
+    print "Deleteing: " + track['Track_Name']
+    client.DeleteDocument(track['_self'])
 
