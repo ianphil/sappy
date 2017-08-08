@@ -15,4 +15,4 @@ class Logger:
         self.log_msg = 'INFO -- '
         if self.log_level == 'DEBUG':
             print (self.log_msg + msg)
-        logging.error(self.log_msg + msg)
+        logging.info(self.log_msg + msg)
