@@ -1,7 +1,11 @@
-import models
+from Models.artist import *
+from Models.album import Album
 
-a = models.Artist("Ian", 5)
-b = models.Album("Bree", 6)
+a = Artist()
+b = Album()
+
+a.name = 'Ian'
+b.name = 'Bree'
 
 print a.name
 print b.name
