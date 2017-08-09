@@ -1,3 +1,5 @@
 wikipedia
 pydocumentdb
 spotipy
+azure-keyvault
+azure-mgmt-keyvault
