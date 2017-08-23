@@ -1,26 +1,13 @@
-from azure.keyvault import KeyVaultClient, KeyVaultAuthentication, KeyVaultId
-from azure.common.credentials import ServicePrincipalCredentials, UserPassCredentials
-import json
+from azure.keyvault import KeyVaultClient, KeyVaultId
+from azure.common.credentials import ServicePrincipalCredentials
 
 class KeyVault:
-    def __init__(self, uri, resource = 'https://vault.azure.net'):
+    def __init__(self, uri, config):
         self.keyvault_uri = uri
-        self.data_creds = None
-        self.config = None
-        self.resource = resource
-        self.secrets_file = './secrets.json'
-        self.client = KeyVaultClient(KeyVaultAuthentication(self.auth_callack))
-
-        with open(self.secrets_file) as secrets_file:
-            self.config = json.load(secrets_file)
-
-    def auth_callack(self, server, resource, scope):
-        self.data_creds = self.data_creds or ServicePrincipalCredentials(client_id=self.config['client_id'],
-                                                                                 secret=self.config['client_secret'],
-                                                                                 tenant=self.config['tenant_id'],
-                                                                                 resource=self.resource)
-        token = self.data_creds.token
-        return token['token_type'], token['access_token']
+        self.config = config
+        self.client = KeyVaultClient(ServicePrincipalCredentials(client_id=self.config.client_id,
+                                                                 secret=self.config.client_secret,
+                                                                 tenant=self.config.tenant_id))
  
     def create_key(self, key_name, key_type):
         key_bundle = self.client.create_key(self.keyvault_uri, key_name, key_type)

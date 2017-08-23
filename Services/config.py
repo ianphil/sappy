@@ -11,11 +11,15 @@ class Config:
         
         secrets = Secrets()
         secrets.cosmos_endpoint = data['COSMOS_ENDPOINT']
-        secrets.cosmos_master_key = data['COSMOS_MASTERKEY']
+        secrets.cosmos_master_key_name = data['COSMOS_MASTERKEY_NAME']
         secrets.documentdb_database = data['DOCUMENTDB_DATABASE']
         secrets.documentdb_collection = data['DOCUMENTDB_COLLECTION']
         secrets.spotify_client_id = data['SPOTIFY_CLIENT_ID']
-        secrets.spotify_client_secret = data['SPOTIFY_CLIENT_SECRET']
+        secrets.spotify_client_secret_name = data['SPOTIFY_CLIENT_SECRET_NAME']
         secrets.spotify_redirect_url = data['SPOTIFY_REDIRECT_URL']
+        secrets.client_id = data['client_id']
+        secrets.client_secret = data['client_secret']
+        secrets.tenant_id = data['tenant_id']
+        
 
         return secrets

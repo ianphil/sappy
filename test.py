@@ -1,9 +1,10 @@
 from Services.keyvault import KeyVault
+from Services.config import Config
+import json
 
-with open('secrets.json') as secrets_file:
-    config = json.load(secrets_file)
+config = Config("secrets.json").get_secrets()
 
-keyvault = KeyVault('https://tmpkeyvault.vault.azure.net')
+keyvault = KeyVault('https://bighair.vault.azure.net/', config)
 
 # data = keyvault.create_key('secondkey', 'RSA')
 # print(data)
