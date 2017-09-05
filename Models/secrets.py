@@ -10,3 +10,6 @@ class Secrets:
         self.client_id = None
         self.client_secret = None
         self.tenant_id = None
+        self.cosmos_master_key = None
+        self.spotify_client_secret = None
+        self.keyvault_url = None

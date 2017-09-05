@@ -4,7 +4,7 @@ import json
 
 config = Config("secrets.json").get_secrets()
 
-keyvault = KeyVault('https://bighair.vault.azure.net/', config)
+# keyvault = KeyVault('https://bighair.vault.azure.net/', config)
 
 # data = keyvault.create_key('secondkey', 'RSA')
 # print(data)
@@ -20,7 +20,12 @@ keyvault = KeyVault('https://bighair.vault.azure.net/', config)
 # data = keyvault.get_secret('yoyo')
 # print(data)
 
-sec_list = keyvault.get_secrets()
-for sec in sec_list:
-    print(sec)
-    keyvault.delete_secret(sec.id.split('/')[-1])
+# data = keyvault.delete_secret('yoyo')
+# print(data)
+
+# sec_list = keyvault.get_secrets()
+# for sec in sec_list:
+#     print(sec)
+#     keyvault.delete_secret(sec.id.split('/')[-1])
+
+# print(config.spotify_client_secret)

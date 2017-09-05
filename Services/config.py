@@ -1,5 +1,6 @@
 import json
 from Models.secrets import Secrets
+from Services.keyvault import KeyVault
 
 class Config:
     def __init__(self, secrets_filename):
@@ -20,6 +21,10 @@ class Config:
         secrets.client_id = data['client_id']
         secrets.client_secret = data['client_secret']
         secrets.tenant_id = data['tenant_id']
+        secrets.keyvault_url = data['keyvault_url']
         
+        keyvault = KeyVault(secrets.keyvault_url, secrets)
+        secrets.cosmos_master_key = keyvault.get_secret(secrets.cosmos_master_key_name)
+        secrets.spotify_client_secret = keyvault.get_secret(secrets.spotify_client_secret_name)
 
         return secrets
