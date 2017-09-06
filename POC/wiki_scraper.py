@@ -6,9 +6,14 @@ from pydocumentdb import document_client
 with open("secrets.json") as secrets_file:
     secrets = json.load(secrets_file)
 
-client = document_client.DocumentClient(secrets['COSMOS_ENDPOINT'], {'masterKey': secrets['COSMOS_MASTERKEY']})
-db = next((data for data in client.ReadDatabases() if data['id'] == secrets["DOCUMENTDB_DATABASE"]))
-collection = client.CreateCollection(db['_self'], {'id': secrets['DOCUMENTDB_COLLECTION']})
+client = document_client.DocumentClient(
+    secrets['COSMOS_ENDPOINT'], {'masterKey': secrets['COSMOS_MASTERKEY']})
+    
+db = next((data for data in client.ReadDatabases() 
+    if data['id'] == secrets["DOCUMENTDB_DATABASE"]))
+
+collection = client.CreateCollection(
+    db['_self'], {'id': secrets['DOCUMENTDB_COLLECTION']})
 
 def get_big_hair_list():
     """Gets the list of bands and returns"""
