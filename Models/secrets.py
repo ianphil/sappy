@@ -13,3 +13,6 @@ class Secrets:
         self.cosmos_master_key = None
         self.spotify_client_secret = None
         self.keyvault_url = None
+        self.cog_svc_host = None
+        self.cog_svc_path = None
+        self.cog_svc_sec = None

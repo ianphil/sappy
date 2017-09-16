@@ -22,7 +22,10 @@ class Config:
         secrets.client_secret = data['client_secret']
         secrets.tenant_id = data['tenant_id']
         secrets.keyvault_url = data['keyvault_url']
-        
+        secrets.cog_svc_host = data['cog_svc_host']
+        secrets.cog_svc_path = data['cog_svc_path']
+        secrets.cog_svc_sec = data['cog_svc_sec']
+
         keyvault = KeyVault(secrets.keyvault_url, secrets)
         secrets.cosmos_master_key = keyvault.get_secret(secrets.cosmos_master_key_name)
         secrets.spotify_client_secret = keyvault.get_secret(secrets.spotify_client_secret_name)
