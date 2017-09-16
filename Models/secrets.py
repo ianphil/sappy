@@ -16,3 +16,4 @@ class Secrets:
         self.cog_svc_host = None
         self.cog_svc_path = None
         self.cog_svc_sec = None
+        self.genius_sec = None

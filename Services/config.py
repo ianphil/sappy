@@ -25,6 +25,7 @@ class Config:
         secrets.cog_svc_host = data['cog_svc_host']
         secrets.cog_svc_path = data['cog_svc_path']
         secrets.cog_svc_sec = data['cog_svc_sec']
+        secrets.genius_sec = data['genius_sec']
 
         keyvault = KeyVault(secrets.keyvault_url, secrets)
         secrets.cosmos_master_key = keyvault.get_secret(secrets.cosmos_master_key_name)

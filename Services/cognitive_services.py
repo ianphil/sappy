@@ -19,5 +19,7 @@ class Cognitive_Services:
         conn.request("POST", self.config.cog_svc_path, body, headers)
         response = conn.getresponse()
         data = response.read()
-        return json.loads(data)['documents'][0]['score']
+        pyList = json.loads(data)
+        score = str(pyList['documents'][0]['score'])
+        return score
 
