@@ -11,3 +11,6 @@ class Artist:
         self.spotify_popularity = None
         self.spotify_followers = None
         self.spotify_genres = None
+
+    def ctor_from_dict(self, **entries):
+        self.__dict__.update(entries)

@@ -1,4 +1,5 @@
 from pydocumentdb import document_client
+from Models.artist import Artist
 from json import JSONEncoder
 
 class CosmosDb:
@@ -20,3 +21,12 @@ class CosmosDb:
     def insert(self, entity):
         data = entity.__dict__
         self.client.CreateDocument(self.collection['_self'], data)
+
+    def get_artists(self):
+        artist_list = []
+        for doc in self.client.ReadDocuments(self.collection['_self']):
+            artist = Artist()
+            artist.ctor_from_dict(**doc)
+            artist_list.append(artist)
+
+        return artist_list
