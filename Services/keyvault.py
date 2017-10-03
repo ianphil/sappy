@@ -8,7 +8,7 @@ class KeyVault:
         self.client = KeyVaultClient(ServicePrincipalCredentials(client_id=self.config.client_id,
                                                                  secret=self.config.client_secret,
                                                                  tenant=self.config.tenant_id))
- 
+
     def create_key(self, key_name, key_type):
         key_bundle = self.client.create_key(self.keyvault_uri, key_name, key_type)
         key_id = KeyVaultId.parse_key_id(key_bundle.key.kid)
