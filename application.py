@@ -46,8 +46,11 @@ def Save_Artists(artist_names):
             logger.log_error("Spotify Get Artist Info: " + artist.name + " -- " + ex)
 
 def main():
-    artist_names = wiki.get_artist_names()
-    Save_Artists(artist_names)
+    # artist_names = wiki.get_artist_names()
+    # Save_Artists(artist_names)
+
+    # TODO: Get Albums & save
+    # TODO: Get Songs & save
 
 if __name__ == "__main__": 
     main()
