@@ -5,9 +5,12 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 Album	../Models/album.py	/^class Album:$/;"	kind:class	line:1
+Album	../Services/spotify.py	/^from Models.album import Album$/;"	kind:namespace	line:2
+Album	../application.py	/^from Models.album import Album$/;"	kind:namespace	line:9
 Artist	../Models/artist.py	/^class Artist:$/;"	kind:class	line:1
 Artist	../Services/cosmosdb.py	/^from Models.artist import Artist$/;"	kind:namespace	line:2
 Artist	../Services/wiki_data.py	/^from Models.artist import Artist$/;"	kind:namespace	line:3
+Artist	../application.py	/^from Models.artist import Artist$/;"	kind:namespace	line:8
 BeautifulSoup	../POC/song_lyrics.py	/^from bs4 import BeautifulSoup$/;"	kind:namespace	line:2
 BeautifulSoup	../Services/genius_lyrics.py	/^from bs4 import BeautifulSoup$/;"	kind:namespace	line:2
 Cognitive_Services	../Services/cognitive_services.py	/^class Cognitive_Services:$/;"	kind:class	line:5
@@ -28,16 +31,19 @@ KeyVaultClient	../POC/keyvault.py	/^from azure.keyvault import KeyVaultClient, K
 KeyVaultClient	../Services/keyvault.py	/^from azure.keyvault import KeyVaultClient, KeyVaultId$/;"	kind:namespace	line:1
 KeyVaultId	../Services/keyvault.py	/^from azure.keyvault import KeyVaultClient, KeyVaultId$/;"	kind:namespace	line:1
 Logger	../Services/logger.py	/^class Logger:$/;"	kind:class	line:3
+Logger	../application.py	/^from Services.logger import Logger$/;"	kind:namespace	line:5
 Logger	../tests.py	/^from Services.logger import Logger$/;"	kind:namespace	line:3
 Lyric	../Models/lyric.py	/^class Lyric:$/;"	kind:class	line:1
 Lyrics	../Services/genius_lyrics.py	/^class Lyrics:$/;"	kind:class	line:4
-Lyrics	../application.py	/^from Services.genius_lyrics import Lyrics$/;"	kind:namespace	line:5
+Lyrics	../application.py	/^from Services.genius_lyrics import Lyrics$/;"	kind:namespace	line:7
 Musician	../Models/musician.py	/^class Musician:$/;"	kind:class	line:1
+Save_Artists	../application.py	/^def Save_Artists(artist_names):$/;"	kind:function	line:19
 Secrets	../Models/secrets.py	/^class Secrets:$/;"	kind:class	line:1
 Secrets	../Services/config.py	/^from Models.secrets import Secrets$/;"	kind:namespace	line:2
 ServicePrincipalCredentials	../POC/keyvault.py	/^from azure.common.credentials import ServicePrincipalCredentials, UserPassCredentials$/;"	kind:namespace	line:2
 ServicePrincipalCredentials	../Services/keyvault.py	/^from azure.common.credentials import ServicePrincipalCredentials$/;"	kind:namespace	line:2
-Spotify	../Services/spotify.py	/^class Spotify:$/;"	kind:class	line:4
+Spotify	../Services/spotify.py	/^class Spotify:$/;"	kind:class	line:5
+Spotify	../application.py	/^from Services.spotify import Spotify$/;"	kind:namespace	line:6
 SpotifyClientCredentials	../POC/add_album_data.py	/^from spotipy.oauth2 import SpotifyClientCredentials$/;"	kind:namespace	line:4
 SpotifyClientCredentials	../POC/clear_track_list.py	/^from spotipy.oauth2 import SpotifyClientCredentials$/;"	kind:namespace	line:4
 SpotifyClientCredentials	../POC/delete_albums.py	/^from spotipy.oauth2 import SpotifyClientCredentials$/;"	kind:namespace	line:3
@@ -46,7 +52,7 @@ SpotifyClientCredentials	../POC/get_artist_info.py	/^from spotipy.oauth2 import 
 SpotifyClientCredentials	../POC/get_track_data.py	/^from spotipy.oauth2 import SpotifyClientCredentials$/;"	kind:namespace	line:4
 SpotifyClientCredentials	../POC/remove_albums_no_in_80s.py	/^from spotipy.oauth2 import SpotifyClientCredentials$/;"	kind:namespace	line:4
 SpotifyClientCredentials	../POC/simple_spotify.py	/^from spotipy.oauth2 import SpotifyClientCredentials$/;"	kind:namespace	line:3
-SpotifyClientCredentials	../Services/spotify.py	/^from spotipy.oauth2 import SpotifyClientCredentials$/;"	kind:namespace	line:2
+SpotifyClientCredentials	../Services/spotify.py	/^from spotipy.oauth2 import SpotifyClientCredentials$/;"	kind:namespace	line:3
 TEST_LOG_FILENAME	../tests.py	/^TEST_LOG_FILENAME = 'logs\/tests.log'$/;"	kind:variable	line:8
 Track	../Models/track.py	/^class Track:$/;"	kind:class	line:1
 UserPassCredentials	../POC/keyvault.py	/^from azure.common.credentials import ServicePrincipalCredentials, UserPassCredentials$/;"	kind:namespace	line:2
@@ -64,7 +70,7 @@ __init__	../Services/cosmosdb.py	/^    def __init__(self, config):$/;"	kind:memb
 __init__	../Services/genius_lyrics.py	/^    def __init__(self, config):$/;"	kind:member	line:5
 __init__	../Services/keyvault.py	/^    def __init__(self, uri, config):$/;"	kind:member	line:5
 __init__	../Services/logger.py	/^    def __init__(self, log_filename, log_level):$/;"	kind:member	line:4
-__init__	../Services/spotify.py	/^    def __init__(self, config):$/;"	kind:member	line:5
+__init__	../Services/spotify.py	/^    def __init__(self, config):$/;"	kind:member	line:6
 __init__	../Services/wiki_data.py	/^    def __init__(self, page_name):$/;"	kind:member	line:6
 __init__.py	../Models/__init__.py	1;"	kind:file	line:1
 __init__.py	../Services/__init__.py	1;"	kind:file	line:1
@@ -100,7 +106,6 @@ client_credentials_manager	../POC/get_artist_info.py	/^client_credentials_manage
 client_credentials_manager	../POC/get_track_data.py	/^client_credentials_manager = SpotifyClientCredentials(secrets["SPOTIFY_CLIENT_ID"], secrets["SPOTIFY_CLIENT_SECRET"])$/;"	kind:variable	line:16
 client_credentials_manager	../POC/remove_albums_no_in_80s.py	/^client_credentials_manager = SpotifyClientCredentials(secrets["SPOTIFY_CLIENT_ID"], secrets["SPOTIFY_CLIENT_SECRET"])$/;"	kind:variable	line:16
 client_credentials_manager	../POC/simple_spotify.py	/^client_credentials_manager = SpotifyClientCredentials(secrets["SPOTIFY_CLIENT_ID"], secrets["SPOTIFY_CLIENT_SECRET"])$/;"	kind:variable	line:8
-cog	../application.py	/^cog = Cognitive_Services(config)$/;"	kind:variable	line:11
 cognitive_services.py	../Services/cognitive_services.py	1;"	kind:file	line:1
 coll	../POC/add_album_data.py	/^coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == secrets["DOCUMENTDB_COLLECTION"]))$/;"	kind:variable	line:14
 coll	../POC/band_data_cleaner.py	/^coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == secrets["DOCUMENTDB_COLLECTION"]))$/;"	kind:variable	line:10
@@ -112,7 +117,7 @@ coll	../POC/get_track_data.py	/^coll = next((coll for coll in client.ReadCollect
 coll	../POC/remove_albums_no_in_80s.py	/^coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == secrets["DOCUMENTDB_COLLECTION"]))$/;"	kind:variable	line:14
 coll	../POC/update_album_list.py	/^coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == secrets["DOCUMENTDB_COLLECTION"]))$/;"	kind:variable	line:12
 collection	../POC/wiki_scraper.py	/^collection = client.CreateCollection($/;"	kind:variable	line:15
-config	../application.py	/^config = Config("secrets.json").get_secrets()$/;"	kind:variable	line:9
+config	../application.py	/^config = Config("secrets.json").get_secrets()$/;"	kind:variable	line:13
 config.py	../Services/config.py	1;"	kind:file	line:1
 cosmosdb.py	../Services/cosmosdb.py	1;"	kind:file	line:1
 count	../POC/add_album_data.py	/^count = 1$/;"	kind:variable	line:28
@@ -121,10 +126,10 @@ count	../POC/get_album_data.py	/^count = 1$/;"	kind:variable	line:25
 count	../POC/get_track_data.py	/^count = 1$/;"	kind:variable	line:27
 count	../POC/remove_albums_no_in_80s.py	/^count = 1$/;"	kind:variable	line:28
 count	../POC/wiki_scraper.py	/^count = 1$/;"	kind:variable	line:23
+create_album	../application.py	/^def create_album(a, count, artist_id):$/;"	kind:function	line:49
 create_key	../Services/keyvault.py	/^    def create_key(self, key_name, key_type):$/;"	kind:member	line:12
 create_secret	../Services/keyvault.py	/^    def create_secret(self, name, secret):$/;"	kind:member	line:25
 ctor_from_dict	../Models/artist.py	/^    def ctor_from_dict(self, **entries):$/;"	kind:member	line:15
-data	../application.py	/^        data = str(lyric).lstrip('[').rstrip(']')$/;"	kind:variable	line:17
 data_encoder.py	../POC/data_encoder.py	1;"	kind:file	line:1
 db	../POC/add_album_data.py	/^db = next((data for data in client.ReadDatabases() if data['id'] == secrets["DOCUMENTDB_DATABASE"]))$/;"	kind:variable	line:13
 db	../POC/band_data_cleaner.py	/^db = next((data for data in client.ReadDatabases() if data['id'] == secrets["DOCUMENTDB_DATABASE"]))$/;"	kind:variable	line:9
@@ -136,6 +141,7 @@ db	../POC/get_track_data.py	/^db = next((data for data in client.ReadDatabases()
 db	../POC/remove_albums_no_in_80s.py	/^db = next((data for data in client.ReadDatabases() if data['id'] == secrets["DOCUMENTDB_DATABASE"]))$/;"	kind:variable	line:13
 db	../POC/update_album_list.py	/^db = next((data for data in client.ReadDatabases() if data['id'] == secrets["DOCUMENTDB_DATABASE"]))$/;"	kind:variable	line:11
 db	../POC/wiki_scraper.py	/^db = next((data for data in client.ReadDatabases() $/;"	kind:variable	line:12
+db	../application.py	/^db = CosmosDb(config)$/;"	kind:variable	line:14
 default	../POC/data_encoder.py	/^    def default(self, o):$/;"	kind:member	line:4
 delete_albums.py	../POC/delete_albums.py	1;"	kind:file	line:1
 delete_key	../Services/keyvault.py	/^    def delete_key(self, name):$/;"	kind:member	line:21
@@ -153,10 +159,10 @@ document_client	../POC/wiki_scraper.py	/^from pydocumentdb import document_clien
 document_client	../Services/cosmosdb.py	/^from pydocumentdb import document_client$/;"	kind:namespace	line:1
 genius_lyrics.py	../Services/genius_lyrics.py	1;"	kind:file	line:1
 get_album_data.py	../POC/get_album_data.py	1;"	kind:file	line:1
-get_album_info	../Services/spotify.py	/^    def get_album_info(self, album):$/;"	kind:member	line:18
-get_album_track_list	../Services/spotify.py	/^    def get_album_track_list(self, album):$/;"	kind:member	line:22
-get_artist_album_list	../Services/spotify.py	/^    def get_artist_album_list(self, artist):$/;"	kind:member	line:14
-get_artist_info	../Services/spotify.py	/^    def get_artist_info(self, artist):$/;"	kind:member	line:10
+get_album_info	../Services/spotify.py	/^    def get_album_info(self, album):$/;"	kind:member	line:19
+get_album_track_list	../Services/spotify.py	/^    def get_album_track_list(self, album):$/;"	kind:member	line:23
+get_artist_album_list	../Services/spotify.py	/^    def get_artist_album_list(self, artist):$/;"	kind:member	line:15
+get_artist_info	../Services/spotify.py	/^    def get_artist_info(self, artist):$/;"	kind:member	line:11
 get_artist_info.py	../POC/get_artist_info.py	1;"	kind:file	line:1
 get_artist_names	../Services/wiki_data.py	/^    def get_artist_names(self):$/;"	kind:member	line:9
 get_artists	../Services/cosmosdb.py	/^    def get_artists(self):$/;"	kind:member	line:25
@@ -186,12 +192,13 @@ json	../POC/wiki_scraper.py	/^import json$/;"	kind:namespace	line:3
 json	../Services/cognitive_services.py	/^import json$/;"	kind:namespace	line:1
 json	../Services/config.py	/^import json$/;"	kind:namespace	line:1
 json	../Services/wiki_data.py	/^import json$/;"	kind:namespace	line:1
-json	../application.py	/^import json$/;"	kind:namespace	line:6
+json	../application.py	/^import json$/;"	kind:namespace	line:10
 key_bundle	../POC/keyvault.py	/^key_bundle = client.create_key(KEY_VAULT_URI, 'FirstKey', 'RSA')$/;"	kind:variable	line:18
 keyvault.py	../POC/keyvault.py	1;"	kind:file	line:1
 keyvault.py	../Services/keyvault.py	1;"	kind:file	line:1
 log_error	../Services/logger.py	/^    def log_error(self, msg):$/;"	kind:member	line:8
 log_info	../Services/logger.py	/^    def log_info(self, msg):$/;"	kind:member	line:14
+logger	../application.py	/^logger = Logger('\/tmp\/sappy.log', 'DEBUG')$/;"	kind:variable	line:16
 logger	../tests.py	/^logger = Logger(TEST_LOG_FILENAME, 'TEST')$/;"	kind:variable	line:9
 logger.py	../Services/logger.py	1;"	kind:file	line:1
 logging	../POC/add_album_data.py	/^import logging$/;"	kind:namespace	line:3
@@ -201,10 +208,9 @@ logging	../POC/remove_albums_no_in_80s.py	/^import logging$/;"	kind:namespace	li
 logging	../POC/update_album_list.py	/^import logging$/;"	kind:namespace	line:2
 logging	../Services/logger.py	/^import logging$/;"	kind:namespace	line:1
 lyric.py	../Models/lyric.py	1;"	kind:file	line:1
-lyric_list	../application.py	/^lyric_list = lyrics.splitlines()$/;"	kind:variable	line:14
-lyrics	../application.py	/^lyrics = Lyrics(config).get_lyrics('Sia', 'Chandelier')$/;"	kind:variable	line:13
 lyrics_from_song_api_path	../POC/song_lyrics.py	/^def lyrics_from_song_api_path(song_api_path):$/;"	kind:function	line:10
 lyrics_from_song_api_path	../Services/genius_lyrics.py	/^    def lyrics_from_song_api_path(self, song_api_path):$/;"	kind:member	line:10
+main	../application.py	/^def main():$/;"	kind:function	line:60
 musician.py	../Models/musician.py	1;"	kind:file	line:1
 name	../POC/simple_spotify.py	/^name = "Aerosmith"$/;"	kind:variable	line:11
 options	../POC/add_album_data.py	/^options = {} $/;"	kind:variable	line:21
@@ -231,7 +237,6 @@ results	../POC/get_artist_info.py	/^    results = spotify.search(q='artist:' + d
 results	../POC/get_track_data.py	/^results = client.QueryDocuments(coll['_self'], query, options)$/;"	kind:variable	line:25
 results	../POC/remove_albums_no_in_80s.py	/^results = client.QueryDocuments(coll['_self'], query, options)$/;"	kind:variable	line:25
 results	../POC/simple_spotify.py	/^results = spotify.search(q='artist:' + name, type='artist')$/;"	kind:variable	line:12
-score	../application.py	/^        score = cog.get_sentiment(str(data))$/;"	kind:variable	line:19
 secrets	../POC/add_album_data.py	/^    secrets = json.load(secrets_file)$/;"	kind:variable	line:10
 secrets	../POC/band_data_cleaner.py	/^    secrets = json.load(secrets_file)$/;"	kind:variable	line:6
 secrets	../POC/clear_track_list.py	/^    secrets = json.load(secrets_file)$/;"	kind:variable	line:10
@@ -262,6 +267,7 @@ spotify	../POC/get_track_data.py	/^spotify = spotipy.Spotify(client_credentials_
 spotify	../POC/remove_albums_no_in_80s.py	/^spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)$/;"	kind:variable	line:17
 spotify	../POC/simple_spotify.py	/^spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)$/;"	kind:variable	line:9
 spotify.py	../Services/spotify.py	1;"	kind:file	line:1
+spotify_client	../application.py	/^spotify_client = Spotify(config)$/;"	kind:variable	line:15
 spotipy	../POC/add_album_data.py	/^import spotipy$/;"	kind:namespace	line:2
 spotipy	../POC/clear_track_list.py	/^import spotipy$/;"	kind:namespace	line:2
 spotipy	../POC/delete_albums.py	/^import spotipy$/;"	kind:namespace	line:2
@@ -272,10 +278,11 @@ spotipy	../POC/remove_albums_no_in_80s.py	/^import spotipy$/;"	kind:namespace	li
 spotipy	../POC/simple_spotify.py	/^import spotipy$/;"	kind:namespace	line:2
 spotipy	../Services/spotify.py	/^import spotipy$/;"	kind:namespace	line:1
 tests.py	../tests.py	1;"	kind:file	line:1
-time	../application.py	/^import time$/;"	kind:namespace	line:7
+time	../application.py	/^import time$/;"	kind:namespace	line:11
 track.py	../Models/track.py	1;"	kind:file	line:1
 update_album_list.py	../POC/update_album_list.py	1;"	kind:file	line:1
 urllib	../Services/cognitive_services.py	/^import urllib$/;"	kind:namespace	line:2
+wiki	../application.py	/^wiki = WikiData("List of glam metal bands and artists")$/;"	kind:variable	line:17
 wiki_data.py	../Services/wiki_data.py	1;"	kind:file	line:1
 wiki_scraper.py	../POC/wiki_scraper.py	1;"	kind:file	line:1
 wikipedia	../POC/wiki_scraper.py	/^import wikipedia$/;"	kind:namespace	line:2

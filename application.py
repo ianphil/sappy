@@ -6,6 +6,7 @@ from Services.logger import Logger
 from Services.spotify import Spotify
 from Services.genius_lyrics import Lyrics
 from Models.artist import Artist
+from Models.album import Album
 import json
 import time
 
@@ -45,11 +46,29 @@ def Save_Artists(artist_names):
         except Exception as ex:
             logger.log_error("Spotify Get Artist Info: " + artist.name + " -- " + ex)
 
+def create_album(a, count, artist_id):
+    album = Album()
+    album.album_id = count
+    album.artist_id = artist_id
+    album.spotify_external_url = a['external_urls']['spotify']
+    album.spotify_id = a['id']
+    album.spotify_url = a['uri']
+    album.spptify_image_url = a['images'][0]['url']
+    album.name = a['name']
+    return album
+
 def main():
     # artist_names = wiki.get_artist_names()
     # Save_Artists(artist_names)
 
     # TODO: Get Albums & save
+    count = 1
+    for artist in db.get_artists():
+        spotify_album_list = spotify_client.get_artist_album_list(artist)
+        for album in spotify_album_list['items']:
+            a = create_album(album, count, artist.artist_id)
+            count += 1
+        
     # TODO: Get Songs & save
 
 if __name__ == "__main__": 

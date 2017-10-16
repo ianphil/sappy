@@ -1,4 +1,5 @@
 import spotipy
+from Models.album import Album
 from spotipy.oauth2 import SpotifyClientCredentials
 
 class Spotify:

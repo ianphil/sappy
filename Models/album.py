@@ -10,4 +10,5 @@ class Album:
         self.spotify_popularity = None
         self.spotify_label = None
         self.spotify_release_date = None
+        self.spptify_image_url = None
         self.track_list = None
