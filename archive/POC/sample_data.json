@@ -1,0 +1,306 @@
+{
+  "album_type" : "album",
+  "artists" : [ {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/3JDIAtVrJdQ7GFOX26LYpv"
+    },
+    "href" : "https://api.spotify.com/v1/artists/3JDIAtVrJdQ7GFOX26LYpv",
+    "id" : "3JDIAtVrJdQ7GFOX26LYpv",
+    "name" : "Accept",
+    "type" : "artist",
+    "uri" : "spotify:artist:3JDIAtVrJdQ7GFOX26LYpv"
+  } ],
+  "available_markets" : [ "AR", "AU", "BO", "BR", "CA", "CL", "CO", "CR", "DO", "EC", "GT", "HN", "ID", "MT", "MX", "MY", "NI", "NZ", "PA", "PE", "PH", "PY", "SG", "SV", "TR", "US", "UY" ],
+  "copyrights" : [ {
+    "text" : "(C) 2017 Nuclear Blast",
+    "type" : "C"
+  } ],
+  "external_ids" : {
+    "upc" : "727361401269"
+  },
+  "external_urls" : {
+    "spotify" : "https://open.spotify.com/album/5jgGvvWWO3EAolDdLI9HH6"
+  },
+  "genres" : [ ],
+  "href" : "https://api.spotify.com/v1/albums/5jgGvvWWO3EAolDdLI9HH6",
+  "id" : "5jgGvvWWO3EAolDdLI9HH6",
+  "images" : [ {
+    "height" : 640,
+    "url" : "https://i.scdn.co/image/724378b0c23930621d623677ff978b65e928619a",
+    "width" : 640
+  }, {
+    "height" : 300,
+    "url" : "https://i.scdn.co/image/e836cc66ee8d1eac397efb5ab118b1861d8bb20c",
+    "width" : 300
+  }, {
+    "height" : 64,
+    "url" : "https://i.scdn.co/image/f169dc5468fb2db4c7daa54e57f6b9ba25c8f6c8",
+    "width" : 64
+  } ],
+  "label" : "Nuclear Blast",
+  "name" : "The Rise of Chaos",
+  "popularity" : 33,
+  "release_date" : "2017-08-04",
+  "release_date_precision" : "day",
+  "tracks" : {
+    "href" : "https://api.spotify.com/v1/albums/5jgGvvWWO3EAolDdLI9HH6/tracks?offset=0&limit=50",
+    "items" : [ {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/3JDIAtVrJdQ7GFOX26LYpv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/3JDIAtVrJdQ7GFOX26LYpv",
+        "id" : "3JDIAtVrJdQ7GFOX26LYpv",
+        "name" : "Accept",
+        "type" : "artist",
+        "uri" : "spotify:artist:3JDIAtVrJdQ7GFOX26LYpv"
+      } ],
+      "available_markets" : [ "AR", "AU", "BO", "BR", "CA", "CL", "CO", "CR", "DO", "EC", "GT", "HN", "ID", "MT", "MX", "MY", "NI", "NZ", "PA", "PE", "PH", "PY", "SG", "SV", "TR", "US", "UY" ],
+      "disc_number" : 1,
+      "duration_ms" : 300973,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/5RJe9R6YwmhFDuyXtEZPv5"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/5RJe9R6YwmhFDuyXtEZPv5",
+      "id" : "5RJe9R6YwmhFDuyXtEZPv5",
+      "name" : "Die by the Sword",
+      "preview_url" : "https://p.scdn.co/mp3-preview/32c30a04bd006dba6fb0d1d34165fda46d8f8ae4?cid=8897482848704f2a8f8d7c79726a70d4",
+      "track_number" : 1,
+      "type" : "track",
+      "uri" : "spotify:track:5RJe9R6YwmhFDuyXtEZPv5"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/3JDIAtVrJdQ7GFOX26LYpv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/3JDIAtVrJdQ7GFOX26LYpv",
+        "id" : "3JDIAtVrJdQ7GFOX26LYpv",
+        "name" : "Accept",
+        "type" : "artist",
+        "uri" : "spotify:artist:3JDIAtVrJdQ7GFOX26LYpv"
+      } ],
+      "available_markets" : [ "AR", "AU", "BO", "BR", "CA", "CL", "CO", "CR", "DO", "EC", "GT", "HN", "ID", "MT", "MX", "MY", "NI", "NZ", "PA", "PE", "PH", "PY", "SG", "SV", "TR", "US", "UY" ],
+      "disc_number" : 1,
+      "duration_ms" : 241506,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/31jyJAhd2LSKA0uYamqSPz"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/31jyJAhd2LSKA0uYamqSPz",
+      "id" : "31jyJAhd2LSKA0uYamqSPz",
+      "name" : "Hole in the Head",
+      "preview_url" : "https://p.scdn.co/mp3-preview/4344ba84fe5d17ac4ac565835cf99e0e8c44a5f2?cid=8897482848704f2a8f8d7c79726a70d4",
+      "track_number" : 2,
+      "type" : "track",
+      "uri" : "spotify:track:31jyJAhd2LSKA0uYamqSPz"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/3JDIAtVrJdQ7GFOX26LYpv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/3JDIAtVrJdQ7GFOX26LYpv",
+        "id" : "3JDIAtVrJdQ7GFOX26LYpv",
+        "name" : "Accept",
+        "type" : "artist",
+        "uri" : "spotify:artist:3JDIAtVrJdQ7GFOX26LYpv"
+      } ],
+      "available_markets" : [ "AR", "AU", "BO", "BR", "CA", "CL", "CO", "CR", "DO", "EC", "GT", "HN", "ID", "MT", "MX", "MY", "NI", "NZ", "PA", "PE", "PH", "PY", "SG", "SV", "TR", "US", "UY" ],
+      "disc_number" : 1,
+      "duration_ms" : 316906,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/4n5c4uXPuQdBvMbqQZ2jk1"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/4n5c4uXPuQdBvMbqQZ2jk1",
+      "id" : "4n5c4uXPuQdBvMbqQZ2jk1",
+      "name" : "The Rise of Chaos",
+      "preview_url" : "https://p.scdn.co/mp3-preview/978342897529034fa82892f07004acbcd9883b65?cid=8897482848704f2a8f8d7c79726a70d4",
+      "track_number" : 3,
+      "type" : "track",
+      "uri" : "spotify:track:4n5c4uXPuQdBvMbqQZ2jk1"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/3JDIAtVrJdQ7GFOX26LYpv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/3JDIAtVrJdQ7GFOX26LYpv",
+        "id" : "3JDIAtVrJdQ7GFOX26LYpv",
+        "name" : "Accept",
+        "type" : "artist",
+        "uri" : "spotify:artist:3JDIAtVrJdQ7GFOX26LYpv"
+      } ],
+      "available_markets" : [ "AR", "AU", "BO", "BR", "CA", "CL", "CO", "CR", "DO", "EC", "GT", "HN", "ID", "MT", "MX", "MY", "NI", "NZ", "PA", "PE", "PH", "PY", "SG", "SV", "TR", "US", "UY" ],
+      "disc_number" : 1,
+      "duration_ms" : 299720,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/5pchmEfNG7OVzQUgrilxpO"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/5pchmEfNG7OVzQUgrilxpO",
+      "id" : "5pchmEfNG7OVzQUgrilxpO",
+      "name" : "Koolaid",
+      "preview_url" : "https://p.scdn.co/mp3-preview/979f0186d01892bc2578bf0b27066100bb1086dd?cid=8897482848704f2a8f8d7c79726a70d4",
+      "track_number" : 4,
+      "type" : "track",
+      "uri" : "spotify:track:5pchmEfNG7OVzQUgrilxpO"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/3JDIAtVrJdQ7GFOX26LYpv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/3JDIAtVrJdQ7GFOX26LYpv",
+        "id" : "3JDIAtVrJdQ7GFOX26LYpv",
+        "name" : "Accept",
+        "type" : "artist",
+        "uri" : "spotify:artist:3JDIAtVrJdQ7GFOX26LYpv"
+      } ],
+      "available_markets" : [ "AR", "AU", "BO", "BR", "CA", "CL", "CO", "CR", "DO", "EC", "GT", "HN", "ID", "MT", "MX", "MY", "NI", "NZ", "PA", "PE", "PH", "PY", "SG", "SV", "TR", "US", "UY" ],
+      "disc_number" : 1,
+      "duration_ms" : 260839,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/4NJQ93Rp07bGIdp8zjP0LG"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/4NJQ93Rp07bGIdp8zjP0LG",
+      "id" : "4NJQ93Rp07bGIdp8zjP0LG",
+      "name" : "No Regrets",
+      "preview_url" : "https://p.scdn.co/mp3-preview/66eb0ea3924054c0d6c4d52d6e318bf2fd683e3f?cid=8897482848704f2a8f8d7c79726a70d4",
+      "track_number" : 5,
+      "type" : "track",
+      "uri" : "spotify:track:4NJQ93Rp07bGIdp8zjP0LG"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/3JDIAtVrJdQ7GFOX26LYpv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/3JDIAtVrJdQ7GFOX26LYpv",
+        "id" : "3JDIAtVrJdQ7GFOX26LYpv",
+        "name" : "Accept",
+        "type" : "artist",
+        "uri" : "spotify:artist:3JDIAtVrJdQ7GFOX26LYpv"
+      } ],
+      "available_markets" : [ "AR", "AU", "BO", "BR", "CA", "CL", "CO", "CR", "DO", "EC", "GT", "HN", "ID", "MT", "MX", "MY", "NI", "NZ", "PA", "PE", "PH", "PY", "SG", "SV", "TR", "US", "UY" ],
+      "disc_number" : 1,
+      "duration_ms" : 251493,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/2TDPGRYXvknF9x88VROELY"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/2TDPGRYXvknF9x88VROELY",
+      "id" : "2TDPGRYXvknF9x88VROELY",
+      "name" : "Analog Man",
+      "preview_url" : "https://p.scdn.co/mp3-preview/3b873f69d79835de52477fbcafceda230ca27d13?cid=8897482848704f2a8f8d7c79726a70d4",
+      "track_number" : 6,
+      "type" : "track",
+      "uri" : "spotify:track:2TDPGRYXvknF9x88VROELY"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/3JDIAtVrJdQ7GFOX26LYpv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/3JDIAtVrJdQ7GFOX26LYpv",
+        "id" : "3JDIAtVrJdQ7GFOX26LYpv",
+        "name" : "Accept",
+        "type" : "artist",
+        "uri" : "spotify:artist:3JDIAtVrJdQ7GFOX26LYpv"
+      } ],
+      "available_markets" : [ "AR", "AU", "BO", "BR", "CA", "CL", "CO", "CR", "DO", "EC", "GT", "HN", "ID", "MT", "MX", "MY", "NI", "NZ", "PA", "PE", "PH", "PY", "SG", "SV", "TR", "US", "UY" ],
+      "disc_number" : 1,
+      "duration_ms" : 249440,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/0hCG1gIrzS8WQZBwyxWcCY"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/0hCG1gIrzS8WQZBwyxWcCY",
+      "id" : "0hCG1gIrzS8WQZBwyxWcCY",
+      "name" : "What's Done Is Done",
+      "preview_url" : "https://p.scdn.co/mp3-preview/c0cabe272c197e3cd30265c4fc7ace14cd63fd2a?cid=8897482848704f2a8f8d7c79726a70d4",
+      "track_number" : 7,
+      "type" : "track",
+      "uri" : "spotify:track:0hCG1gIrzS8WQZBwyxWcCY"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/3JDIAtVrJdQ7GFOX26LYpv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/3JDIAtVrJdQ7GFOX26LYpv",
+        "id" : "3JDIAtVrJdQ7GFOX26LYpv",
+        "name" : "Accept",
+        "type" : "artist",
+        "uri" : "spotify:artist:3JDIAtVrJdQ7GFOX26LYpv"
+      } ],
+      "available_markets" : [ "AR", "AU", "BO", "BR", "CA", "CL", "CO", "CR", "DO", "EC", "GT", "HN", "ID", "MT", "MX", "MY", "NI", "NZ", "PA", "PE", "PH", "PY", "SG", "SV", "TR", "US", "UY" ],
+      "disc_number" : 1,
+      "duration_ms" : 270506,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/5jNOU5DL0ysoHj4u4frlpt"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/5jNOU5DL0ysoHj4u4frlpt",
+      "id" : "5jNOU5DL0ysoHj4u4frlpt",
+      "name" : "Worlds Colliding",
+      "preview_url" : "https://p.scdn.co/mp3-preview/60f622de133a713c74730276b083c43c1c358b8a?cid=8897482848704f2a8f8d7c79726a70d4",
+      "track_number" : 8,
+      "type" : "track",
+      "uri" : "spotify:track:5jNOU5DL0ysoHj4u4frlpt"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/3JDIAtVrJdQ7GFOX26LYpv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/3JDIAtVrJdQ7GFOX26LYpv",
+        "id" : "3JDIAtVrJdQ7GFOX26LYpv",
+        "name" : "Accept",
+        "type" : "artist",
+        "uri" : "spotify:artist:3JDIAtVrJdQ7GFOX26LYpv"
+      } ],
+      "available_markets" : [ "AR", "AU", "BO", "BR", "CA", "CL", "CO", "CR", "DO", "EC", "GT", "HN", "ID", "MT", "MX", "MY", "NI", "NZ", "PA", "PE", "PH", "PY", "SG", "SV", "TR", "US", "UY" ],
+      "disc_number" : 1,
+      "duration_ms" : 274800,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/34wku8jbjxlAYKvCFZ6cyf"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/34wku8jbjxlAYKvCFZ6cyf",
+      "id" : "34wku8jbjxlAYKvCFZ6cyf",
+      "name" : "Carry the Weight",
+      "preview_url" : "https://p.scdn.co/mp3-preview/1da1d71a1ed1ad5cf3840972a0ad855ba85c1ac2?cid=8897482848704f2a8f8d7c79726a70d4",
+      "track_number" : 9,
+      "type" : "track",
+      "uri" : "spotify:track:34wku8jbjxlAYKvCFZ6cyf"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/3JDIAtVrJdQ7GFOX26LYpv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/3JDIAtVrJdQ7GFOX26LYpv",
+        "id" : "3JDIAtVrJdQ7GFOX26LYpv",
+        "name" : "Accept",
+        "type" : "artist",
+        "uri" : "spotify:artist:3JDIAtVrJdQ7GFOX26LYpv"
+      } ],
+      "available_markets" : [ "AR", "AU", "BO", "BR", "CA", "CL", "CO", "CR", "DO", "EC", "GT", "HN", "ID", "MT", "MX", "MY", "NI", "NZ", "PA", "PE", "PH", "PY", "SG", "SV", "TR", "US", "UY" ],
+      "disc_number" : 1,
+      "duration_ms" : 324941,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/7Cm772DR5qvzk2mlZLepKA"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/7Cm772DR5qvzk2mlZLepKA",
+      "id" : "7Cm772DR5qvzk2mlZLepKA",
+      "name" : "Race to Extinction",
+      "preview_url" : "https://p.scdn.co/mp3-preview/cc7c6be41f326d0ad31866418c84dd38e5caa062?cid=8897482848704f2a8f8d7c79726a70d4",
+      "track_number" : 10,
+      "type" : "track",
+      "uri" : "spotify:track:7Cm772DR5qvzk2mlZLepKA"
+    } ],
+    "limit" : 50,
+    "next" : null,
+    "offset" : 0,
+    "previous" : null,
+    "total" : 10
+  },
+  "type" : "album",
+  "uri" : "spotify:album:5jgGvvWWO3EAolDdLI9HH6"
+}

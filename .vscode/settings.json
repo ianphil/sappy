@@ -1,3 +1,6 @@
 {
-    "python.pythonPath": "${workspaceRoot}/venv/bin/python3"
+    "python.pythonPath": "/home/ianphil/.local/share/virtualenvs/sappy-5fOrL4BA/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true
 }

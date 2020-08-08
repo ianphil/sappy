@@ -1,0 +1,6 @@
+wikipedia
+pydocumentdb
+spotipy
+azure-keyvault>=0.3.6
+azure-mgmt-keyvault
+BeautifulSoup4
