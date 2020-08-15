@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "28b9c314d1830bc57ffce4652a37893c6f9019ce9276137bf244b37a442380a5"
+            "sha256": "6ea87a92a12ee06b30b02dface8a264285da054a93f9494b8f6aa06327da3275"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,14 @@
         ]
     },
     "default": {
+        "beautifulsoup4": {
+            "hashes": [
+                "sha256:73cc4d115b96f79c7d77c1c7f7a0a8d4c57860d1041df407dd1aae7f07a77fd7",
+                "sha256:a6237df3c32ccfaee4fd201c8f5f9d9df619b93121d01353a64a73ce8c6ef9a8",
+                "sha256:e718f2342e2e099b640a34ab782407b7b676f47ee272d6739e60b8ea23829f2c"
+            ],
+            "version": "==4.9.1"
+        },
         "certifi": {
             "hashes": [
                 "sha256:5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3",
@@ -54,6 +62,14 @@
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==1.15.0"
         },
+        "soupsieve": {
+            "hashes": [
+                "sha256:1634eea42ab371d3d346309b93df7870a88610f0725d47528be902a0d95ecc55",
+                "sha256:a59dc181727e95d25f781f0eb4fd1825ff45590ec8ff49eadfd7f1a537cc0232"
+            ],
+            "markers": "python_version >= '3.5'",
+            "version": "==2.0.1"
+        },
         "spotipy": {
             "hashes": [
                 "sha256:600f05bccd4b4217a02843a01025cf94b65c2ff2babeff3dcbd091a6e09ab0af",
@@ -70,6 +86,13 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
             "version": "==1.25.10"
+        },
+        "wikipedia": {
+            "hashes": [
+                "sha256:db0fad1829fdd441b1852306e9856398204dc0786d2996dd2e0c8bb8e26133b2"
+            ],
+            "index": "pypi",
+            "version": "==1.4.0"
         }
     },
     "develop": {
@@ -136,11 +159,11 @@
         },
         "identify": {
             "hashes": [
-                "sha256:110ed090fec6bce1aabe3c72d9258a9de82207adeaa5a05cd75c635880312f9a",
-                "sha256:ccd88716b890ecbe10920659450a635d2d25de499b9a638525a48b48261d989b"
+                "sha256:150e7c679d6c12e67d18a63808f59068e98576b9ab1fd0ebfcc013c885c5f2e7",
+                "sha256:1e9d119ad2aea3af2dec09cf8d4b89af11aa9069ea48240338b53f9dbeedc015"
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
-            "version": "==1.4.25"
+            "version": "==1.4.26"
         },
         "importlib-metadata": {
             "hashes": [

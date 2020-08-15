@@ -1,21 +1,22 @@
 #!/usr/bin/env python
-from os import getenv
-
-import constants
-
-
-def get_spotify_client_info():
-    return {
-        constants.SPOTIFY_CLIENT_ID: getenv(constants.SPOTIFY_CLIENT_ID),
-        constants.SPOTIFY_CLIENT_SECRET: getenv(constants.SPOTIFY_CLIENT_SECRET),
-    }
+import spotipy
+import wikipedia
+from spotipy.oauth2 import SpotifyClientCredentials
 
 
 if __name__ == "__main__":
-    spotify_creds = get_spotify_client_info()
-    print(
-        (
-            f"The {constants.SPOTIFY_CLIENT_ID} is "
-            f"{spotify_creds[constants.SPOTIFY_CLIENT_ID]}"
-        )
-    )
+    client = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
+
+    # Get artists from Wikipedia
+    artists = [
+        {"name": link.split("(")[0].rstrip()}
+        for link in wikipedia.page("List of glam metal bands and artists").links
+    ]
+
+    # Get artists top track in the 80s
+    for artist in artists:
+        track = client.search(f'q=artist:{artist["name"]}%20year:1980-1989&type=track')
+        print(track)
+    # Get Top track lyrics
+    # Get sentiment for each track
+    # Sort [rank] by sentiment

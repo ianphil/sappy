@@ -10,6 +10,7 @@ pre-commit = "*"
 
 [packages]
 spotipy = "*"
+wikipedia = "*"
 
 [requires]
 python_version = "3.8"
