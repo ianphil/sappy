@@ -1,8 +1,8 @@
 import unittest
 import json
-from storage import LocalJsonFile
+from src.storage import LocalJsonFile
 from unittest.mock import patch, mock_open, MagicMock
-from constants import LOCAL_FILE_STORE_PATH, LOCAL_FILE_STORE_NAME
+from src.constants import LOCAL_FILE_STORE_PATH, LOCAL_FILE_STORE_NAME
 
 
 class TestStorage(unittest.TestCase):
