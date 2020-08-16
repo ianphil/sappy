@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 import os
-import json
 import spotipy
 import constants
 import wikipedia
 import lyricsgenius
+from storage import LocalJsonFile
 from spotipy.oauth2 import SpotifyClientCredentials
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.textanalytics import TextAnalyticsClient
@@ -15,6 +15,10 @@ from azure.ai.textanalytics import TextAnalyticsClient
 if __name__ == "__main__":
     gather_data = False
     get_scores = False
+    local_store_path = os.path.join(
+        constants.LOCAL_FILE_STORE_PATH, constants.LOCAL_FILE_STORE_NAME
+    )
+    storage_provider = LocalJsonFile(local_store_path)
 
     if gather_data:
         # Get artists from Wikipedia
@@ -71,13 +75,11 @@ if __name__ == "__main__":
                     }
                 )
 
-        with open("src/store/lyrics.json", "w") as lyrics:
-            json.dump(lyric_list, lyrics)
+        storage_provider.create(lyric_list)
 
     # Get sentiment for each track
     if get_scores:
-        with open("src/store/lyrics.json", "r") as lyrics:
-            song_list = json.load(lyrics)
+        song_list = storage_provider.read()
 
         text_analytics_key = os.getenv(constants.TEXT_ANALYTICS_KEY)
         text_analytics_endpoint = os.getenv(constants.TEXT_ANALYTICS_ENDPOINT)
@@ -97,12 +99,10 @@ if __name__ == "__main__":
                 "negative": response["confidence_scores"]["negative"],
             }
 
-        with open("src/store/lyrics.json", "w") as lyrics:
-            json.dump(song_list, lyrics)
+        storage_provider.create(song_list)
 
     # Sort [rank] by sentiment
-    with open("src/store/lyrics.json", "r") as lyrics:
-        scored_song_list = json.load(lyrics)
+    scored_song_list = storage_provider.read()
 
     sorted_list = sorted(
         scored_song_list,
@@ -110,5 +110,4 @@ if __name__ == "__main__":
         reverse=True,
     )
 
-    with open("src/store/lyrics.json", "w") as lyrics:
-        json.dump(sorted_list, lyrics)
+    storage_provider.create(sorted_list)
