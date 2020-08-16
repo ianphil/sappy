@@ -11,6 +11,8 @@ pre-commit = "*"
 [packages]
 spotipy = "*"
 wikipedia = "*"
+lyricsgenius = "*"
+azure-ai-textanalytics = "*"
 
 [requires]
 python_version = "3.8"
