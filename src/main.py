@@ -4,6 +4,7 @@ import spotipy
 import constants
 import wikipedia
 import lyricsgenius
+from music import MusicProvider
 from storage import LocalJsonFile
 from spotipy.oauth2 import SpotifyClientCredentials
 from azure.core.credentials import AzureKeyCredential
@@ -21,33 +22,12 @@ if __name__ == "__main__":
     storage_provider = LocalJsonFile(local_store_path)
 
     if gather_data:
-        # Get artists from Wikipedia
-        wiki_artists = [
-            {"name": link.split("(")[0].rstrip()}
-            for link in wikipedia.page("List of glam metal bands and artists").links
-        ]
 
         # Get artists and track from the 80s with track thats in Aritist's list of top
         # 10 played tracks on Spotify
-        spotify_client = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
-
-        spotify_artists = [
-            spotify_client.search(
-                q=f'artist:{artist["name"]} year:1980-1989', type="artist"
-            )
-            for artist in wiki_artists
-        ]
-
-        artists_that_exist = [
-            artist["artists"]["items"][0]
-            for artist in spotify_artists
-            if len(artist["artists"]["items"]) != 0
-        ]
-
-        artists_with_top_10_tracks = [
-            spotify_client.artist_top_tracks(artist["id"])
-            for artist in artists_that_exist
-        ]
+        music = MusicProvider()
+        artists = music.search_artist_by_genre("glam metal", {"year": "1980-1989"})
+        artists_with_top_10_tracks = music.get_artists_top_ten_tracks(artists)
 
         artists_with_top_80s_track = []
         for artist in artists_with_top_10_tracks:

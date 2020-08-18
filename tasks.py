@@ -12,7 +12,7 @@ CHECK_INCLUDES = ("tasks.py", PROJ, TEST_DIR)
 def black(context):
     """Run black style checker."""
     if version_info >= (3, 6, 0):
-        context.run("black --check %s" % (" ".join(CHECK_INCLUDES)))
+        context.run("black %s" % (" ".join(CHECK_INCLUDES)))
 
 
 @task
