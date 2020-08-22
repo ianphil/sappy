@@ -1,12 +1,14 @@
 #!/usr/bin/env python
+import os
 import json
+from constants import LOCAL_FILE_STORE_PATH, LOCAL_FILE_STORE_NAME
 
 
 class LocalJsonFile:
     """Class that implements CRUD for local file system."""
 
-    def __init__(self, path):
-        self.path = path
+    def __init__(self):
+        self.path = os.path.join(LOCAL_FILE_STORE_PATH, LOCAL_FILE_STORE_NAME)
 
     def create(self, data):
         """Create and write a file or clobber a file."""

@@ -1,12 +1,9 @@
 #!/usr/bin/env python
 import os
-import spotipy
 import constants
-import wikipedia
 import lyricsgenius
 from music import MusicProvider
 from storage import LocalJsonFile
-from spotipy.oauth2 import SpotifyClientCredentials
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.textanalytics import TextAnalyticsClient
 
@@ -14,27 +11,21 @@ from azure.ai.textanalytics import TextAnalyticsClient
 
 
 if __name__ == "__main__":
-    gather_data = False
+    gather_data = True
     get_scores = False
-    local_store_path = os.path.join(
-        constants.LOCAL_FILE_STORE_PATH, constants.LOCAL_FILE_STORE_NAME
-    )
-    storage_provider = LocalJsonFile(local_store_path)
+
+    storage_provider = LocalJsonFile()
 
     if gather_data:
 
         # Get artists and track from the 80s with track thats in Aritist's list of top
         # 10 played tracks on Spotify
         music = MusicProvider()
-        artists = music.search_artist_by_genre("glam metal", {"year": "1980-1989"})
+        artists = music.search_artist_by_genre("glam metal", year="1980-1989")
         artists_with_top_10_tracks = music.get_artists_top_ten_tracks(artists)
-
-        artists_with_top_80s_track = []
-        for artist in artists_with_top_10_tracks:
-            for track in artist["tracks"]:
-                if 1980 <= int(track["album"]["release_date"].split("-")[0]) < 1990:
-                    artists_with_top_80s_track.append(track)
-                    break
+        artists_with_top_80s_track = music.get_artists_top_track_from_years(
+            artists_with_top_10_tracks, year_range=(1980, 1989)
+        )
 
         # Get Top track lyrics
         genius_client = lyricsgenius.Genius(

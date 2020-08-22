@@ -17,18 +17,47 @@ class MusicProvider:
         else:
             query = f'genre: "{genre}"'
 
-        bands = []
         offset = 0
         while True:
             results = self._client.search(q=query, type="artist", offset=offset)[
                 "artists"
             ]
-            [bands.append(band) for band in results["items"]]
+
+            for band in results["items"]:
+                yield band
+
             offset = offset + len(results["items"])
             if len(results["items"]) == 0:
                 break
-        return bands
 
     def get_artists_top_ten_tracks(self, artists):
         """returns a list of top 10 tracks for all artists passed to method"""
-        return [self._client.artist_top_tracks(artist["id"]) for artist in artists]
+        return (self._client.artist_top_tracks(artist["id"]) for artist in artists)
+
+    def get_artists_top_track_from_years(self, artists, **kwargs):
+        """Returns only the top track from given year or year range. Accepts kwargs
+        year [int] or year_range [tuple[int]]."""
+        for artist in artists:
+            if "year" in kwargs.keys():
+                yield from self._get_from_year(artist["tracks"], kwargs["year"])
+
+            if "year_range" in kwargs.keys():
+                yield from self._get_from_year_range(
+                    artist["tracks"], kwargs["year_range"]
+                )
+
+    def _get_from_year(self, tracks, year):
+        for track in tracks:
+            if int(track["album"]["release_date"].split("-")[0]) == year:
+                yield track
+                break
+
+    def _get_from_year_range(self, tracks, year_range):
+        for track in tracks:
+            if (
+                year_range[0]
+                <= int(track["album"]["release_date"].split("-")[0])
+                <= year_range[1]
+            ):
+                yield track
+                break
