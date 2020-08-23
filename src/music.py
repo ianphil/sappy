@@ -55,7 +55,7 @@ class MusicProvider:
     def get_lyrics_for_song(self, artists):
         for track in artists:
             try:
-                song = self._search_song(
+                song = self._song_search(
                     track["name"], artist=track["artists"][0]["name"]
                 )
             except ReadTimeout as t:

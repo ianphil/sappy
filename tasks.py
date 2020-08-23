@@ -25,3 +25,14 @@ def flake8(context):
 def pytest(context):
     """Run flake8 style checker."""
     context.run("python -m pytest")
+
+
+@task
+def setup(context):
+    """Load dotenv"""
+    context.run("export $(egrep -v '^#' .env | xargs)")
+
+
+@task
+def run(context):
+    context.run("export $(egrep -v '^#' .env | xargs) && python src/main.py")
