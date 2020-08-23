@@ -1,18 +1,15 @@
 #!/usr/bin/env python
 import os
 import constants
-import lyricsgenius
 from music import MusicProvider
 from storage import LocalJsonFile
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.textanalytics import TextAnalyticsClient
 
-# TODO: Need to do better clean up... whitesnake!
-
 
 if __name__ == "__main__":
-    gather_data = True
-    get_scores = False
+    gather_data = False
+    get_scores = True
 
     storage_provider = LocalJsonFile()
 
@@ -28,25 +25,11 @@ if __name__ == "__main__":
         )
 
         # Get Top track lyrics
-        genius_client = lyricsgenius.Genius(
-            os.getenv(constants.GENIUS_CLIENT_TOKEN), verbose=False
-        )
+        artist_list = [
+            artist for artist in music.get_lyrics_for_song(artists_with_top_80s_track)
+        ]
 
-        lyric_list = []
-        for track in artists_with_top_80s_track:
-            song = genius_client.search_song(
-                track["name"], artist=track["artists"][0]["name"]
-            )
-            if song is not None:
-                lyric_list.append(
-                    {
-                        "artist": song.artist,
-                        "songTitle": song.title,
-                        "lyrics": song.lyrics,
-                    }
-                )
-
-        storage_provider.create(lyric_list)
+        storage_provider.upsert(artist_list)
 
     # Get sentiment for each track
     if get_scores:
@@ -64,11 +47,15 @@ if __name__ == "__main__":
             response = text_analytics_client.analyze_sentiment(
                 documents=[song["lyrics"]]
             )[0]
-            song["score"] = {
-                "positive": response["confidence_scores"]["positive"],
-                "neutral": response["confidence_scores"]["neutral"],
-                "negative": response["confidence_scores"]["negative"],
-            }
+
+            if "error" not in response.keys():
+                song["score"] = {
+                    "positive": response["confidence_scores"]["positive"],
+                    "neutral": response["confidence_scores"]["neutral"],
+                    "negative": response["confidence_scores"]["negative"],
+                }
+            else:
+                song_list.remove(song)
 
         storage_provider.create(song_list)
 
