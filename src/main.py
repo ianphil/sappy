@@ -1,10 +1,7 @@
 #!/usr/bin/env python
-import os
-import constants
 from music import MusicProvider
 from storage import LocalJsonFile
-from azure.core.credentials import AzureKeyCredential
-from azure.ai.textanalytics import TextAnalyticsClient
+from analytics import AnalyticsProvider
 
 
 if __name__ == "__main__":
@@ -34,30 +31,10 @@ if __name__ == "__main__":
     # Get sentiment for each track
     if get_scores:
         song_list = storage_provider.read()
+        analytics = AnalyticsProvider()
+        scores = [song for song in analytics.get_sentiment(song_list)]
 
-        text_analytics_key = os.getenv(constants.TEXT_ANALYTICS_KEY)
-        text_analytics_endpoint = os.getenv(constants.TEXT_ANALYTICS_ENDPOINT)
-
-        text_analytics_cred = AzureKeyCredential(text_analytics_key)
-        text_analytics_client = TextAnalyticsClient(
-            endpoint=text_analytics_endpoint, credential=text_analytics_cred
-        )
-
-        for song in song_list:
-            response = text_analytics_client.analyze_sentiment(
-                documents=[song["lyrics"]]
-            )[0]
-
-            if "error" not in response.keys():
-                song["score"] = {
-                    "positive": response["confidence_scores"]["positive"],
-                    "neutral": response["confidence_scores"]["neutral"],
-                    "negative": response["confidence_scores"]["negative"],
-                }
-            else:
-                song_list.remove(song)
-
-        storage_provider.create(song_list)
+        storage_provider.create(scores)
 
     # Sort [rank] by sentiment
     scored_song_list = storage_provider.read()
