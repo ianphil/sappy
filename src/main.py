@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     [
         print(f'{idx + 1}. {song["artist"]} - {song["songTitle"]}')
-        for idx, song in enumerate(sorted_list[:5])
+        for idx, song in enumerate(sorted_list)
     ]
 
     storage_provider.create(sorted_list)

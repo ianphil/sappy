@@ -4,6 +4,7 @@ import spotipy
 import lyricsgenius
 from time import sleep
 from requests import ReadTimeout
+from logs import DangGoodLogProvider
 from constants import GENIUS_CLIENT_TOKEN
 from spotipy.oauth2 import SpotifyClientCredentials
 
@@ -16,6 +17,7 @@ class MusicProvider:
         self._lyric_client = lyricsgenius.Genius(
             os.getenv(GENIUS_CLIENT_TOKEN), verbose=False
         )
+        self._log = DangGoodLogProvider()
 
     def search_artist_by_genre(self, genre, **kwargs):
         """Searches for artists in a specific genre over specific year"""
@@ -27,20 +29,34 @@ class MusicProvider:
 
         offset = 0
         while True:
-            results = self._client.search(q=query, type="artist", offset=offset)[
-                "artists"
-            ]
+            try:
+                results = self._client.search(q=query, type="artist", offset=offset)[
+                    "artists"
+                ]
+            except:
+                self._log.genre_search_failed()  # TODO add genre_search_failed
 
             for band in results["items"]:
                 yield band
+                self._log.artist_from_genre_search(band)
 
             offset = offset + len(results["items"])
             if len(results["items"]) == 0:
+                self._log.total_count_from_genre_search(
+                    offset
+                )  # TODO add total_count_from_genre_search
                 break
 
     def get_artists_top_ten_tracks(self, artists):
         """returns a list of top 10 tracks for all artists passed to method"""
-        return (self._client.artist_top_tracks(artist["id"]) for artist in artists)
+        for artist in artists:
+            try:
+                top_tracks = self._client.artist_top_tracks(artist["id"])
+            except:
+                self._log.top_tracks_failed(artist)  # TODO add top_tracks_failed
+
+            yield top_tracks
+            self._log.top_tracks_for_artist(artist)  # TODO add top_tracks_for_artist
 
     def get_artists_top_track_from_years(self, artists, **kwargs):
         """Returns only the top track from given year or year range. Accepts kwargs
@@ -53,27 +69,32 @@ class MusicProvider:
                 yield from _get_from_year_range(artist["tracks"], kwargs["year_range"])
 
     def get_lyrics_for_song(self, artists):
+        # TODO Comment get_lyrics_for_song
         for track in artists:
+            song_name = track["name"].split(" - ")[0].split(" (")[0]
+            artist_name = track["artists"][0]["name"]
             try:
-                song = self._song_search(
-                    track["name"], artist=track["artists"][0]["name"]
-                )
+                song = self._song_search(song_name, artist=artist_name)
             except ReadTimeout as t:
                 _backoff(t)
-                song = self._song_search(
-                    track["name"], artist=track["artists"][0]["name"]
-                )
+                song = self._song_search(song_name, artist=artist_name)
             except TypeError as t:
                 pass
 
             if song is not None:
-                yield {
-                    "artist": song.artist,
-                    "songTitle": song.title,
-                    "lyrics": song.lyrics,
-                }
+                song_artist = song.artist.replace("’", "'").split(" (")[0]
+                if artist_name.lower() == song_artist.lower():
+                    yield {
+                        "artist": artist_name,
+                        "songTitle": song_name,
+                        "lyrics": song.lyrics.replace("’", "'"),
+                    }
+                else:
+                    self._log.song_lyrics_error(artist_name, song_artist, song_name)
 
     def _song_search(self, track, artist):
+        # TODO Comment _song_search
+        # TODO Log _song_search
         _be_nice()
         return self._lyric_client.search_song(track, artist=artist)
 
