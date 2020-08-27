@@ -34,7 +34,7 @@ class MusicProvider:
                     "artists"
                 ]
             except:
-                self._log.genre_search_failed()  # TODO add genre_search_failed
+                self._log.genre_search_failed(query)
 
             for band in results["items"]:
                 yield band
@@ -42,9 +42,7 @@ class MusicProvider:
 
             offset = offset + len(results["items"])
             if len(results["items"]) == 0:
-                self._log.total_count_from_genre_search(
-                    offset
-                )  # TODO add total_count_from_genre_search
+                self._log.total_count_from_genre_search(offset)
                 break
 
     def get_artists_top_ten_tracks(self, artists):
@@ -53,10 +51,10 @@ class MusicProvider:
             try:
                 top_tracks = self._client.artist_top_tracks(artist["id"])
             except:
-                self._log.top_tracks_failed(artist)  # TODO add top_tracks_failed
+                self._log.top_tracks_failed(artist)
 
             yield top_tracks
-            self._log.top_tracks_for_artist(artist)  # TODO add top_tracks_for_artist
+            self._log.top_tracks_for_artist(artist)
 
     def get_artists_top_track_from_years(self, artists, **kwargs):
         """Returns only the top track from given year or year range. Accepts kwargs
@@ -75,11 +73,13 @@ class MusicProvider:
             artist_name = track["artists"][0]["name"]
             try:
                 song = self._song_search(song_name, artist=artist_name)
+                # TODO add call_to_lyric_search
             except ReadTimeout as t:
                 _backoff(t)
                 song = self._song_search(song_name, artist=artist_name)
+                # TODO add lyrics_timeout_error
             except TypeError as t:
-                pass
+                pass  # TODO add lyrics_type_error
 
             if song is not None:
                 song_artist = song.artist.replace("’", "'").split(" (")[0]
@@ -89,6 +89,7 @@ class MusicProvider:
                         "songTitle": song_name,
                         "lyrics": song.lyrics.replace("’", "'"),
                     }
+                    # TODO add created_song
                 else:
                     self._log.song_lyrics_error(artist_name, song_artist, song_name)
 
@@ -108,13 +109,16 @@ def _backoff(log_msg):
 
 
 def _get_from_year(tracks, year):
+    # TODO comment get_from_year
     for track in tracks:
         if int(track["album"]["release_date"].split("-")[0]) == year:
             yield track
+            # TODO add filter_track_by_year
             break
 
 
 def _get_from_year_range(tracks, year_range):
+    # TODO comment get_from_year_range
     for track in tracks:
         if (
             year_range[0]
@@ -122,4 +126,5 @@ def _get_from_year_range(tracks, year_range):
             <= year_range[1]
         ):
             yield track
+            # TODO add filter_track_by_year_range
             break
